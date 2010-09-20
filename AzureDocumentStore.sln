@@ -1,0 +1,67 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 11.00
+# Visual Studio 2010
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Orange.Indexing", "Orange.Indexing\Orange.Indexing.csproj", "{7B8425DA-BAD7-4DB3-BCA7-9B0C2666FE67}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Orange.Documents", "Orange.Documents\Orange.Documents.csproj", "{BAC6EB8F-6003-4B62-8D7F-9D4B0107F46B}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Orange.Indexing.Test", "Orange.Indexing.Test\Orange.Indexing.Test.csproj", "{2598AF3C-321A-4DD9-9A69-0C90E8A5AAF5}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{4C1AF07B-ECC1-4255-9E3F-9C3676AB293F}"
+	ProjectSection(SolutionItems) = preProject
+		AzureDocumentStore.vsmdi = AzureDocumentStore.vsmdi
+		Local.testsettings = Local.testsettings
+		TraceAndTestImpact.testsettings = TraceAndTestImpact.testsettings
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Tests", "Tests", "{0BC4A010-C703-4CF4-88A6-84A5B69FC674}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Orange.Documents.Test", "Orange.Documents.Test\Orange.Documents.Test.csproj", "{8B5F6BCD-86E0-4E88-B058-1C7291814CD6}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Orange.Json", "Orange.Json\Orange.Json.csproj", "{3B185EDB-7DD1-4AE6-B1C2-457090379BC9}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Orange.Documents.Json.Test", "Orange.Documents.Json.Test\Orange.Documents.Json.Test.csproj", "{828B3FAB-8CC8-4C58-B945-A3109161C089}"
+EndProject
+Global
+	GlobalSection(TestCaseManagementSettings) = postSolution
+		CategoryFile = AzureDocumentStore.vsmdi
+	EndGlobalSection
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{7B8425DA-BAD7-4DB3-BCA7-9B0C2666FE67}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7B8425DA-BAD7-4DB3-BCA7-9B0C2666FE67}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7B8425DA-BAD7-4DB3-BCA7-9B0C2666FE67}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7B8425DA-BAD7-4DB3-BCA7-9B0C2666FE67}.Release|Any CPU.Build.0 = Release|Any CPU
+		{BAC6EB8F-6003-4B62-8D7F-9D4B0107F46B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BAC6EB8F-6003-4B62-8D7F-9D4B0107F46B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BAC6EB8F-6003-4B62-8D7F-9D4B0107F46B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BAC6EB8F-6003-4B62-8D7F-9D4B0107F46B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2598AF3C-321A-4DD9-9A69-0C90E8A5AAF5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2598AF3C-321A-4DD9-9A69-0C90E8A5AAF5}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2598AF3C-321A-4DD9-9A69-0C90E8A5AAF5}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2598AF3C-321A-4DD9-9A69-0C90E8A5AAF5}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8B5F6BCD-86E0-4E88-B058-1C7291814CD6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8B5F6BCD-86E0-4E88-B058-1C7291814CD6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8B5F6BCD-86E0-4E88-B058-1C7291814CD6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8B5F6BCD-86E0-4E88-B058-1C7291814CD6}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3B185EDB-7DD1-4AE6-B1C2-457090379BC9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3B185EDB-7DD1-4AE6-B1C2-457090379BC9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3B185EDB-7DD1-4AE6-B1C2-457090379BC9}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3B185EDB-7DD1-4AE6-B1C2-457090379BC9}.Release|Any CPU.Build.0 = Release|Any CPU
+		{828B3FAB-8CC8-4C58-B945-A3109161C089}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{828B3FAB-8CC8-4C58-B945-A3109161C089}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{828B3FAB-8CC8-4C58-B945-A3109161C089}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{828B3FAB-8CC8-4C58-B945-A3109161C089}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{2598AF3C-321A-4DD9-9A69-0C90E8A5AAF5} = {0BC4A010-C703-4CF4-88A6-84A5B69FC674}
+		{8B5F6BCD-86E0-4E88-B058-1C7291814CD6} = {0BC4A010-C703-4CF4-88A6-84A5B69FC674}
+		{828B3FAB-8CC8-4C58-B945-A3109161C089} = {0BC4A010-C703-4CF4-88A6-84A5B69FC674}
+	EndGlobalSection
+EndGlobal
