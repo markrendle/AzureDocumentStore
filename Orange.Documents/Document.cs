@@ -65,6 +65,7 @@ namespace Orange.Documents
         public static Document Parse(string source)
         {
             var dictionary = new JavaScriptSerializer().DeserializeObject(source) as IDictionary<string, object>;
+            if (dictionary == null) throw new FormatException("Argument must be a valid JSON object.");
             return new Document(dictionary);
         }
 
