@@ -5,16 +5,14 @@ using System;
 using System.IO;
 using System.Linq;
 
-namespace Orange.Documents.Json.Test
+namespace Orange.Documents.Test
 {
-    
-    
     /// <summary>
     ///This is a test class for DocumentTest and is intended
     ///to contain all DocumentTest Unit Tests
     ///</summary>
     [TestClass()]
-    public class DocumentTest
+    public class ParsingTest
     {
         /// <summary>
         ///A test for Load
@@ -32,7 +30,7 @@ namespace Orange.Documents.Json.Test
             var actual = Document.Parse(Properties.Resources.JsonDocumentWithSubDocument);
             Document subDocument = actual.GetSubDocument("Sub");
             Assert.AreEqual("One", subDocument.GetAttribute("StringOne"));
-            Assert.AreEqual(1L, subDocument.GetAttribute("NumberOne"));
+            Assert.AreEqual(1, subDocument.GetAttribute("NumberOne"));
         }
 
         [TestMethod]
@@ -41,9 +39,9 @@ namespace Orange.Documents.Json.Test
             var actual = Document.Parse(Properties.Resources.JsonDocumentWithSubDocumentList);
             var subDocuments = actual.GetDocumentList("Subs").ToArray();
             Assert.AreEqual("One", subDocuments[0].GetAttribute("String"));
-            Assert.AreEqual(1L, subDocuments[0].GetAttribute("Number"));
+            Assert.AreEqual(1, subDocuments[0].GetAttribute("Number"));
             Assert.AreEqual("Two", subDocuments[1].GetAttribute("String"));
-            Assert.AreEqual(2L, subDocuments[1].GetAttribute("Number"));
+            Assert.AreEqual(2, subDocuments[1].GetAttribute("Number"));
         }
 
         [TestMethod]

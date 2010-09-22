@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Text;
-using Orange.Json;
+using System.Web.Script.Serialization;
 
 namespace Orange.Documents
 {
@@ -56,13 +56,15 @@ namespace Orange.Documents
 
         public static Document Load(Stream stream)
         {
-            var dictionary = JsonParser.Parse(stream);
-            return new Document(dictionary);
+            using (var reader = new StreamReader(stream))
+            {
+                return Parse(reader.ReadToEnd());
+            }
         }
 
         public static Document Parse(string source)
         {
-            var dictionary = JsonParser.Parse(source);
+            var dictionary = new JavaScriptSerializer().DeserializeObject(source) as IDictionary<string, object>;
             return new Document(dictionary);
         }
 

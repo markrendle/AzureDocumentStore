@@ -51,7 +51,13 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="DocumentTest.cs" />
+    <Compile Include="ParsingTest.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
     <Compile Include="PropertyReferenceTest.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -59,10 +65,24 @@
       <Project>{BAC6EB8F-6003-4B62-8D7F-9D4B0107F46B}</Project>
       <Name>Orange.Documents</Name>
     </ProjectReference>
-    <ProjectReference Include="..\Orange.Json\Orange.Json.csproj">
-      <Project>{3B185EDB-7DD1-4AE6-B1C2-457090379BC9}</Project>
-      <Name>Orange.Json</Name>
-    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\JsonDocumentWithAttributesOnly.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\JsonDocumentWithList.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\JsonDocumentWithSubDocument.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\JsonDocumentWithSubDocumentList.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

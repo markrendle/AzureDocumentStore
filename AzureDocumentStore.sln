@@ -18,10 +18,6 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Tests", "Tests", "{0BC4A010
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Orange.Documents.Test", "Orange.Documents.Test\Orange.Documents.Test.csproj", "{8B5F6BCD-86E0-4E88-B058-1C7291814CD6}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Orange.Json", "Orange.Json\Orange.Json.csproj", "{3B185EDB-7DD1-4AE6-B1C2-457090379BC9}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Orange.Documents.Json.Test", "Orange.Documents.Json.Test\Orange.Documents.Json.Test.csproj", "{828B3FAB-8CC8-4C58-B945-A3109161C089}"
-EndProject
 Global
 	GlobalSection(TestCaseManagementSettings) = postSolution
 		CategoryFile = AzureDocumentStore.vsmdi
@@ -47,14 +43,6 @@ Global
 		{8B5F6BCD-86E0-4E88-B058-1C7291814CD6}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{8B5F6BCD-86E0-4E88-B058-1C7291814CD6}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{8B5F6BCD-86E0-4E88-B058-1C7291814CD6}.Release|Any CPU.Build.0 = Release|Any CPU
-		{3B185EDB-7DD1-4AE6-B1C2-457090379BC9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{3B185EDB-7DD1-4AE6-B1C2-457090379BC9}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{3B185EDB-7DD1-4AE6-B1C2-457090379BC9}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{3B185EDB-7DD1-4AE6-B1C2-457090379BC9}.Release|Any CPU.Build.0 = Release|Any CPU
-		{828B3FAB-8CC8-4C58-B945-A3109161C089}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{828B3FAB-8CC8-4C58-B945-A3109161C089}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{828B3FAB-8CC8-4C58-B945-A3109161C089}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{828B3FAB-8CC8-4C58-B945-A3109161C089}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -62,6 +50,5 @@ Global
 	GlobalSection(NestedProjects) = preSolution
 		{2598AF3C-321A-4DD9-9A69-0C90E8A5AAF5} = {0BC4A010-C703-4CF4-88A6-84A5B69FC674}
 		{8B5F6BCD-86E0-4E88-B058-1C7291814CD6} = {0BC4A010-C703-4CF4-88A6-84A5B69FC674}
-		{828B3FAB-8CC8-4C58-B945-A3109161C089} = {0BC4A010-C703-4CF4-88A6-84A5B69FC674}
 	EndGlobalSection
 EndGlobal

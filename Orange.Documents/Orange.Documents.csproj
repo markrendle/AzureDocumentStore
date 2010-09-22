@@ -33,6 +33,7 @@
   <ItemGroup>
     <Reference Include="System" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Web.Extensions" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -46,12 +47,6 @@
     <Compile Include="GenericExtensions.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="PropertyReference.cs" />
-  </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\Orange.Json\Orange.Json.csproj">
-      <Project>{3B185EDB-7DD1-4AE6-B1C2-457090379BC9}</Project>
-      <Name>Orange.Json</Name>
-    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
