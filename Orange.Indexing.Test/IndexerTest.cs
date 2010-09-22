@@ -22,12 +22,16 @@ namespace Orange.Indexing.Test
         [TestMethod()]
         public void IndexerSingleAttributeSingleExpressionTest()
         {
+            // Arrange
             const string indexText = "Name eq '?'";
-            var target = new Indexer(indexText);
             var document = Document.Parse(@"{""Name"":""Bob""}");
-            IEnumerable<IndexEntry> entries = target.Index(document);
+
+            // Act
+            var entries = new Indexer(indexText).Index(document);
+            
+            // Assert
             Assert.AreEqual(1, entries.Count());
-            IndexEntry entry = entries.First();
+            var entry = entries.First();
             Assert.AreEqual("Bob", entry.EqualityPart);
         }
 
@@ -37,13 +41,17 @@ namespace Orange.Indexing.Test
         [TestMethod()]
         public void IndexerSingleAttributeDoubleExpressionTest()
         {
+            // Arrange
             const string indexText = "FirstName eq '?' and LastName eq '?'";
-            var target = new Indexer(indexText);
             var document = Document.Parse(@"{""FirstName"":""Bob"",""LastName"":""Smith""}");
-            IEnumerable<IndexEntry> entries = target.Index(document);
+
+            // Act
+            var entries = new Indexer(indexText).Index(document);
+
+            // Assert
             Assert.AreEqual(1, entries.Count());
-            IndexEntry entry = entries.First();
-            Assert.AreEqual("FirstName:Bob;LastName:Smith", entry.EqualityPart);
+            var entry = entries.First();
+            Assert.AreEqual("Bob#Smith", entry.EqualityPart);
         }
     }
 }

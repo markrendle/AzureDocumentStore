@@ -22,16 +22,10 @@ namespace Orange.Indexing
 
         public IEnumerable<IndexEntry> Index(Document document)
         {
-            var values = new List<string[]>();
-            foreach (var eqExpression in IndexParser.GetEqExpressions(_indexText))
-            {
-                values.Add(document.FindValues(eqExpression.Item1.PropertyName).Select(o => o.ToString()).ToArray());
-            }
-
-            foreach (var s in values[0])
-            {
-                yield return new IndexEntry(s);
-            }
+            return IndexParser.GetEqExpressions(_indexText)
+                .Select(eqExpression => document.FindValues(eqExpression.Item1.PropertyName).ToStrings())
+                .CartesianProduct()
+                .Select(combination => new IndexEntry(combination));
         }
     }
 }

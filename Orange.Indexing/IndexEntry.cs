@@ -14,6 +14,11 @@ namespace Orange.Indexing
             _equalityPart = equalityPart;
         }
 
+        public IndexEntry(IEnumerable<string> equalityParts)
+        {
+            _equalityPart = string.Join("#", equalityParts);
+        }
+
         public string EqualityPart
         {
             get { return _equalityPart; }
