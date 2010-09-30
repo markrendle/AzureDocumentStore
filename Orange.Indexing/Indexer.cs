@@ -23,7 +23,7 @@ namespace Orange.Indexing
         public IEnumerable<IndexEntry> Index(Document document)
         {
             return IndexParser.GetEqExpressions(_indexText)
-                .Select(eqExpression => document.FindValues(eqExpression.Item1.PropertyName).ToStrings())
+                .Select(eqExpression => document.FindValues(eqExpression.Item1.FullPath).ToStrings())
                 .CartesianProduct()
                 .Select(combination => new IndexEntry(combination));
         }

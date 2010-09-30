@@ -138,6 +138,16 @@
   <ItemGroup>
     <Folder Include="App_Data\" />
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Orange.Documents\Orange.Documents.csproj">
+      <Project>{BAC6EB8F-6003-4B62-8D7F-9D4B0107F46B}</Project>
+      <Name>Orange.Documents</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Orange.Indexing\Orange.Indexing.csproj">
+      <Project>{7B8425DA-BAD7-4DB3-BCA7-9B0C2666FE67}</Project>
+      <Name>Orange.Indexing</Name>
+    </ProjectReference>
+  </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

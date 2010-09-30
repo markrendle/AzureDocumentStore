@@ -53,5 +53,26 @@ namespace Orange.Indexing.Test
             var entry = entries.First();
             Assert.AreEqual("Bob#Smith", entry.EqualityPart);
         }
+
+        /// <summary>
+        ///A test for Indexer With Sub Things
+        ///</summary>
+        [TestMethod()]
+        public void IndexerSingleAttributeAndListTest()
+        {
+            // Arrange
+            const string indexText = "LastName eq '?' and Addresses/Postcode eq '?'";
+            var document = Document.Parse(@"{""FirstName"":""Bob"",""LastName"":""Smith"",
+""Addresses"":[{""Postcode"":""P1""},{""Postcode"":""P2""}]
+}");
+
+            // Act
+            var entries = new Indexer(indexText).Index(document);
+
+            // Assert
+            Assert.AreEqual(2, entries.Count());
+            Assert.AreEqual(1, entries.Count(e => e.EqualityPart == "Smith#P1"));
+            Assert.AreEqual(1, entries.Count(e => e.EqualityPart == "Smith#P2"));
+        }
     }
 }

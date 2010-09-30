@@ -174,14 +174,22 @@ namespace Orange.Documents
                 var subDocument = item as Document;
                 if (subDocument != null) return subDocument.FindValues(path.Skip(1));
 
-                var subDocumentList = item as List<Document>;
-                if (subDocumentList != null) return subDocumentList.SelectMany(dl => dl.FindValues(path.Skip(1)));
+                var subDocumentList = item as IList<Document>;
+                if (subDocumentList != null)
+                {
+                    return subDocumentList.SelectMany(dl => dl.FindValues(path.Skip(1)));
+                }
 
                 return result;
             }
 
             var list = item as List<object>;
             return list == null ? result.Append(item) : result.Concat(list);
+        }
+
+        public IEnumerable<string> GetAllNames()
+        {
+            return Data.Keys.AsEnumerable();
         }
     }
 }

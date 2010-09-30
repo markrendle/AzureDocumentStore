@@ -9,9 +9,12 @@ namespace Orange.Documents
     {
         private readonly string _path;
         private readonly string _propertyName;
+        private readonly string _fullPath;
 
         public PropertyReference(string fullPath)
         {
+            _fullPath = fullPath;
+
             if (fullPath.Contains('/'))
             {
                 var bits = fullPath.Split('/');
@@ -29,6 +32,11 @@ namespace Orange.Documents
         {
             _path = path;
             _propertyName = propertyName;
+        }
+
+        public string FullPath
+        {
+            get { return _fullPath; }
         }
 
         public string Path
