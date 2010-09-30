@@ -1,0 +1,12 @@
+<?xml version="1.0"?>
+<ServiceConfiguration serviceName="AzDoc" xmlns="http://schemas.microsoft.com/ServiceHosting/2008/10/ServiceConfiguration">
+  <Role name="AzDoc.Web">
+    <Instances count="1" />
+    <ConfigurationSettings>
+      <!--<Setting name="DiagnosticsConnectionString" value="DefaultEndpointsProtocol=https;AccountName=azdoc;AccountKey=ojAcQm9R3E2GTsHFVsMACbb82acwh3FgVVjg4LN/Uxkcy57UNJyZZBDXZAJ3sABYTwleYa4Y+rC0xiX8QtbYww==" />
+      <Setting name="StorageAccount" value="DefaultEndpointsProtocol=https;AccountName=azdoc;AccountKey=ojAcQm9R3E2GTsHFVsMACbb82acwh3FgVVjg4LN/Uxkcy57UNJyZZBDXZAJ3sABYTwleYa4Y+rC0xiX8QtbYww==" />-->
+      <Setting name="DiagnosticsConnectionString" value="UseDevelopmentStorage=true" />
+      <Setting name="StorageAccount" value="UseDevelopmentStorage=true" />
+    </ConfigurationSettings>
+  </Role>
+</ServiceConfiguration>
