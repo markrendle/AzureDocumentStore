@@ -2,9 +2,12 @@
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
+using System.Net;
+using System.ServiceModel.Web;
 using System.Text;
 using System.Web;
 using System.Web.Mvc;
+using AzDoc.Web.Extensions;
 using Orange.Documents;
 using Orange.Indexing;
 
@@ -21,23 +24,55 @@ namespace AzDoc.Web.Controllers
             return View();
         }
 
+        [HttpGet]
+        public ActionResult Get(string collection, string id)
+        {
+            return Content(string.IsNullOrWhiteSpace(id) ?
+                string.Format("Collection: {0} (all)", collection)
+                :
+                string.Format("Collection: {0}, ID: {1}", collection, id)
+                );
+        }
+
         [HttpPost]
-        public ActionResult Create()
+        public ActionResult Post(string collection)
+        {
+            var json = HttpContext.Request.InputStream.ReadToEnd();
+            var document = TryParseDocument(json);
+            collection = collection.ToLowerInvariant();
+
+            var builder = new StringBuilder();
+            builder.AppendLine("Collection: " + collection);
+            foreach (var entry in DefaultIndexer.Index(document))
+            {
+                builder.AppendLine(entry.EqualityPart);
+            }
+            return Content(builder.ToString(), "text/text");
+
+        }
+
+        private Document TryParseDocument(string json)
         {
             try
             {
-                var document = Document.Load(HttpContext.Request.InputStream);
-                var builder = new StringBuilder();
-                foreach (var entry in DefaultIndexer.Index(document))
-                {
-                    builder.AppendLine(entry.EqualityPart);
-                }
-                return Content(builder.ToString(), "text/text");
+                return Document.Parse(json);
             }
-            catch (Exception ex)
+            catch (Exception)
             {
-                return Content(ex.Message, "text/text");
+                throw new WebFaultException<string>("Data is not well-formed JSON", HttpStatusCode.BadGateway);
             }
+        }
+
+        [HttpPut]
+        public ActionResult Put(string collection, string id)
+        {
+            return Content(string.Format("Collection: {0}, ID: {1}", collection, id));
+        }
+
+        [HttpDelete]
+        public ActionResult Delete(string collection, string id)
+        {
+            return Content(string.Format("Collection: {0}, ID: {1}", collection, id));
         }
     }
 }

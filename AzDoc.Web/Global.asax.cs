@@ -17,6 +17,34 @@ namespace AzDoc.Web
             routes.IgnoreRoute("{resource}.axd/{*pathInfo}");
 
             routes.MapRoute(
+                "DocumentPost",
+                "data/{collection}",
+                new {controller = "Documents", action = "Create"},
+                new {httpMethod = new HttpMethodConstraint("POST")}
+                );
+
+            routes.MapRoute(
+                "DocumentGet",
+                "data/{collection}/{id}",
+                new { controller = "Documents", action = "Get", id = UrlParameter.Optional },
+                new { httpMethod = new HttpMethodConstraint("GET") }
+                );
+
+            routes.MapRoute(
+                "DocumentPut",
+                "data/{collection}/{id}",
+                new { controller = "Documents", action = "Put" },
+                new { httpMethod = new HttpMethodConstraint("PUT") }
+                );
+
+            routes.MapRoute(
+                "DocumentDelete",
+                "data/{collection}/{id}",
+                new { controller = "Documents", action = "Delete" },
+                new { httpMethod = new HttpMethodConstraint("DELETE") }
+                );
+
+            routes.MapRoute(
                 "Default", // Route name
                 "{controller}/{action}/{id}", // URL with parameters
                 new { controller = "Home", action = "Index", id = UrlParameter.Optional } // Parameter defaults

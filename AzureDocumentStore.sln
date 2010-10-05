@@ -10,8 +10,6 @@ EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{4C1AF07B-ECC1-4255-9E3F-9C3676AB293F}"
 	ProjectSection(SolutionItems) = preProject
 		AzureDocumentStore.vsmdi = AzureDocumentStore.vsmdi
-		Local.testsettings = Local.testsettings
-		TraceAndTestImpact.testsettings = TraceAndTestImpact.testsettings
 	EndProjectSection
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Tests", "Tests", "{0BC4A010-C703-4CF4-88A6-84A5B69FC674}"

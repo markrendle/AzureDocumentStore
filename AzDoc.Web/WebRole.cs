@@ -4,6 +4,7 @@ using System.Linq;
 using Microsoft.WindowsAzure;
 using Microsoft.WindowsAzure.Diagnostics;
 using Microsoft.WindowsAzure.ServiceRuntime;
+using Microsoft.WindowsAzure.StorageClient;
 
 namespace AzDoc.Web
 {
@@ -17,6 +18,8 @@ namespace AzDoc.Web
             // see the MSDN topic at http://go.microsoft.com/fwlink/?LinkId=166357.
             RoleEnvironment.Changing += RoleEnvironmentChanging;
 
+            Provision();
+
             return base.OnStart();
         }
 
@@ -28,6 +31,12 @@ namespace AzDoc.Web
                 // Set e.Cancel to true to restart this role instance
                 e.Cancel = true;
             }
+        }
+
+        private static void Provision()
+        {
+            var client = Config.Current.GetStorageAccount().CreateCloudTableClient();
+            client.CreateTableIfNotExist("index");
         }
     }
 }
