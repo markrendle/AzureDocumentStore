@@ -8,8 +8,6 @@ using System.Linq;
 // ReSharper disable InconsistentNaming
 namespace AzDoc.Indexing.Test
 {
-    
-    
     /// <summary>
     ///This is a test class for IndexParserTest and is intended
     ///to contain all IndexParserTest Unit Tests

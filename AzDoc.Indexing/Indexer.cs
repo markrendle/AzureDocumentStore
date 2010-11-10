@@ -23,7 +23,7 @@ namespace AzDoc.Indexing
         public IEnumerable<IndexEntry> Index(Document document)
         {
             return IndexParser.GetEqExpressions(_indexText)
-                .Select(eqExpression => document.FindValues(eqExpression.Item1.FullPath).ToStrings())
+                .Select(eqExpression => document.FindValues(eqExpression.Item1.FullPath).Cast<Tuple<string,object>>().Select(t => t.Item1 + "=" + t.Item2))
                 .CartesianProduct()
                 .Select(combination => new IndexEntry(combination));
         }

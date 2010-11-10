@@ -172,19 +172,24 @@ namespace AzDoc.Documents
             if (rest.Any())
             {
                 var subDocument = item as Document;
-                if (subDocument != null) return subDocument.FindValues(path.Skip(1));
+                if (subDocument != null)
+                    return subDocument.FindValues(path.Skip(1))
+                        .Cast<Tuple<string, object>>()
+                        .Select(tuple => new Tuple<string, object>(key + "/" + tuple.Item1, tuple.Item2));
 
                 var subDocumentList = item as IList<Document>;
                 if (subDocumentList != null)
                 {
-                    return subDocumentList.SelectMany(dl => dl.FindValues(path.Skip(1)));
+                    return subDocumentList.SelectMany(dl => dl.FindValues(path.Skip(1))
+                        .Cast<Tuple<string, object>>()
+                        .Select(tuple => new Tuple<string, object>(key + "/" + tuple.Item1, tuple.Item2)));
                 }
 
                 return result;
             }
 
             var list = item as List<object>;
-            return list == null ? result.Append(item) : result.Concat(list);
+            return list == null ? result.Append(new Tuple<string,object>(key, item)) : result.Concat(list);
         }
 
         public IEnumerable<string> GetAllNames()

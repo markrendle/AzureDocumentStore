@@ -32,7 +32,7 @@ namespace AzDoc.Indexing.Test
             // Assert
             Assert.AreEqual(1, entries.Count());
             var entry = entries.First();
-            Assert.AreEqual("Bob", entry.EqualityPart[0]);
+            Assert.AreEqual("Name=Bob", entry.EqualityPart[0]);
         }
 
         /// <summary>
@@ -51,8 +51,8 @@ namespace AzDoc.Indexing.Test
             // Assert
             Assert.AreEqual(1, entries.Count());
             var entry = entries.First();
-            Assert.AreEqual("Bob", entry.EqualityPart[0]);
-            Assert.AreEqual("Smith", entry.EqualityPart[1]);
+            Assert.AreEqual("FirstName=Bob", entry.EqualityPart[0]);
+            Assert.AreEqual("LastName=Smith", entry.EqualityPart[1]);
         }
 
         /// <summary>
@@ -72,8 +72,13 @@ namespace AzDoc.Indexing.Test
 
             // Assert
             Assert.AreEqual(2, entries.Count());
-            Assert.AreEqual(1, entries.Count(e => e.EqualityPart[0] == "Smith" && e.EqualityPart[1] == "P1"));
-            Assert.AreEqual(1, entries.Count(e => e.EqualityPart[0] == "Smith" && e.EqualityPart[1] == "P2"));
+            Assert.AreEqual(1, entries.Count(e => e.EqualityPart[0] == "LastName=Smith" && e.EqualityPart[1] == "Addresses/Postcode=P1"));
+            Assert.AreEqual(1, entries.Count(e => e.EqualityPart[0] == "LastName=Smith" && e.EqualityPart[1] == "Addresses/Postcode=P2"));
+        }
+
+        private static Tuple<string,object> MakeTuple(string name, object value)
+        {
+            return Tuple.Create(name, value);
         }
     }
 }

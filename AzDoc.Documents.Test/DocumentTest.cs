@@ -173,8 +173,9 @@ namespace AzDoc.Documents.Test
         {
             var target = new Document();
             const string name = "foo";
-            object expected = "bar";
-            target.SetAttribute(name, expected);
+            const string value = "bar";
+            object expected = new Tuple<string,object>(name,value);
+            target.SetAttribute(name, value);
             var actual = target.FindValues(name).Single();
             Assert.AreEqual(expected, actual, "GetAttributeReturnedDifferentValueFromSet");
    
@@ -184,8 +185,9 @@ namespace AzDoc.Documents.Test
         public void FindValues_WithTwoPartPath_ShouldReturnSubDocumentAttributeValue()
         {
             var target = new Document();
-            object expected = "bar";
-            target.GetSubDocument("foo").SetAttribute("foo", expected);
+            const string value = "bar";
+            object expected = new Tuple<string,object>("foo/foo","bar");
+            target.GetSubDocument("foo").SetAttribute("foo", value);
             var actual = target.FindValues("foo/foo").Single();
             Assert.AreEqual(expected, actual, "GetAttributeReturnedDifferentValueFromSet");
 
@@ -195,8 +197,8 @@ namespace AzDoc.Documents.Test
         public void FindValues_WithThreePartPath_ShouldReturnAttributeValue()
         {
             var target = new Document();
-            object expected = "bar";
-            target.GetSubDocument("foo").GetSubDocument("bar").SetAttribute("quux", expected);
+            object expected = new Tuple<string,object>("foo/bar/quux","baz");
+            target.GetSubDocument("foo").GetSubDocument("bar").SetAttribute("quux", "baz");
             var actual = target.FindValues("foo/bar/quux").Single();
             Assert.AreEqual(expected, actual, "GetAttributeReturnedDifferentValueFromSet");
         }
