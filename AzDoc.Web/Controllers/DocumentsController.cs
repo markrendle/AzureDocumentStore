@@ -8,8 +8,8 @@ using System.Text;
 using System.Web;
 using System.Web.Mvc;
 using AzDoc.Web.Extensions;
-using Orange.Documents;
-using Orange.Indexing;
+using AzDoc.Documents;
+using AzDoc.Indexing;
 
 namespace AzDoc.Web.Controllers
 {
