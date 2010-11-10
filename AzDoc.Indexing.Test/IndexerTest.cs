@@ -32,7 +32,7 @@ namespace AzDoc.Indexing.Test
             // Assert
             Assert.AreEqual(1, entries.Count());
             var entry = entries.First();
-            Assert.AreEqual("Bob", entry.EqualityPart);
+            Assert.AreEqual("Bob", entry.EqualityPart[0]);
         }
 
         /// <summary>
@@ -51,7 +51,8 @@ namespace AzDoc.Indexing.Test
             // Assert
             Assert.AreEqual(1, entries.Count());
             var entry = entries.First();
-            Assert.AreEqual("Bob#Smith", entry.EqualityPart);
+            Assert.AreEqual("Bob", entry.EqualityPart[0]);
+            Assert.AreEqual("Smith", entry.EqualityPart[1]);
         }
 
         /// <summary>
@@ -71,8 +72,8 @@ namespace AzDoc.Indexing.Test
 
             // Assert
             Assert.AreEqual(2, entries.Count());
-            Assert.AreEqual(1, entries.Count(e => e.EqualityPart == "Smith#P1"));
-            Assert.AreEqual(1, entries.Count(e => e.EqualityPart == "Smith#P2"));
+            Assert.AreEqual(1, entries.Count(e => e.EqualityPart[0] == "Smith" && e.EqualityPart[1] == "P1"));
+            Assert.AreEqual(1, entries.Count(e => e.EqualityPart[0] == "Smith" && e.EqualityPart[1] == "P2"));
         }
     }
 }

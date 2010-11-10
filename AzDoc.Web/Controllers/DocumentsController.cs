@@ -45,7 +45,7 @@ namespace AzDoc.Web.Controllers
             builder.AppendLine("Collection: " + collection);
             foreach (var entry in DefaultIndexer.Index(document))
             {
-                builder.AppendLine(entry.EqualityPart);
+                builder.AppendLine(string.Join("#", entry.EqualityPart));
             }
             return Content(builder.ToString(), "text/text");
 

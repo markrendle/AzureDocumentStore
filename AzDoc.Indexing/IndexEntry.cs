@@ -7,19 +7,14 @@ namespace AzDoc.Indexing
 {
     public class IndexEntry
     {
-        private readonly string _equalityPart;
-
-        public IndexEntry(string equalityPart)
-        {
-            _equalityPart = equalityPart;
-        }
+        private readonly string[] _equalityPart;
 
         public IndexEntry(IEnumerable<string> equalityParts)
         {
-            _equalityPart = string.Join("#", equalityParts);
+            _equalityPart = equalityParts.ToArray();
         }
 
-        public string EqualityPart
+        public string[] EqualityPart
         {
             get { return _equalityPart; }
         }
