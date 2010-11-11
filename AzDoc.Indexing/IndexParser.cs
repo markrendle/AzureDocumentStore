@@ -18,7 +18,16 @@ namespace AzDoc.Indexing
                 .Select(tuple => Tuple.Create(new PropertyReference(tuple.Item1), tuple.Item3.StartsWith("?") ? strings.GetValue(tuple.Item3) : tuple.Item3));
         }
 
-        private static IEnumerable<Tuple<string,string,string>> GetBlocksOfThree(string source)
+        public static IEnumerable<Tuple<PropertyReference, string>> GetNonEqExpressions(string index)
+        {
+            var strings = new StringExtractor(index);
+            var fix = WhitespaceFixer.Fix(strings.ModifedString);
+            return GetBlocksOfThree(fix)
+                .Where(tuple => !tuple.Item2.Equals("eq", StringComparison.OrdinalIgnoreCase))
+                .Select(tuple => Tuple.Create(new PropertyReference(tuple.Item1), tuple.Item3.StartsWith("?") ? strings.GetValue(tuple.Item3) : tuple.Item3));
+        }
+
+        private static IEnumerable<Tuple<string, string, string>> GetBlocksOfThree(string source)
         {
             var bits = source.Split(' ');
             for (int i = 0; i < bits.Length - 2; i++)

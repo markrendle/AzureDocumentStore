@@ -31,11 +31,35 @@ namespace AzDoc.Indexing.Test
         ///A test for GetEqExpressions
         ///</summary>
         [TestMethod()]
+        public void GetNonEqExpressions_SingleIntExpression_Test()
+        {
+            const string index = "Age lt 42";
+            var expected = Tuple.Create(new PropertyReference("Age"), "42");
+            var actual = IndexParser.GetNonEqExpressions(index).Single();
+            Assert.AreEqual(expected, actual);
+        }
+
+        /// <summary>
+        ///A test for GetEqExpressions
+        ///</summary>
+        [TestMethod()]
         public void GetEqExpressions_SingleStringExpression_Test()
         {
             string index = "Name eq 'Bob'";
             var expected = Tuple.Create(new PropertyReference("Name"), "Bob");
             var actual = IndexParser.GetEqExpressions(index).Single();
+            Assert.AreEqual(expected, actual);
+        }
+
+        /// <summary>
+        ///A test for GetEqExpressions
+        ///</summary>
+        [TestMethod()]
+        public void GetNonEqExpressions_SingleStringExpression_Test()
+        {
+            string index = "Name neq 'Bob'";
+            var expected = Tuple.Create(new PropertyReference("Name"), "Bob");
+            var actual = IndexParser.GetNonEqExpressions(index).Single();
             Assert.AreEqual(expected, actual);
         }
 
@@ -49,6 +73,20 @@ namespace AzDoc.Indexing.Test
             var expected0 = Tuple.Create(new PropertyReference("Age"), "42");
             var expected1 = Tuple.Create(new PropertyReference("Size"), "12");
             var actual = IndexParser.GetEqExpressions(index).ToArray();
+            Assert.AreEqual(expected0, actual[0]);
+            Assert.AreEqual(expected1, actual[1]);
+        }
+
+        /// <summary>
+        ///A test for GetEqExpressions
+        ///</summary>
+        [TestMethod()]
+        public void GetNonEqExpressions_DoubleIntExpression_Test()
+        {
+            string index = "Age lt 42 and Size gt 12";
+            var expected0 = Tuple.Create(new PropertyReference("Age"), "42");
+            var expected1 = Tuple.Create(new PropertyReference("Size"), "12");
+            var actual = IndexParser.GetNonEqExpressions(index).ToArray();
             Assert.AreEqual(expected0, actual[0]);
             Assert.AreEqual(expected1, actual[1]);
         }

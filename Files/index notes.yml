@@ -1,0 +1,14 @@
+FirstName: Bob
+LastName: Smith
+Addresses:
+  Address:
+    Line1: Foo
+    Line2: Bar
+  Address:
+    Line1: Baz
+    Line2: Quux
+ 
+Address/Line1 eq ? and Address/Line2 eq ?
+
+Foo#Bar
+Baz#Quux
